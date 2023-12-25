@@ -59,7 +59,12 @@ fun mainHandler(args: Array<String>, output: MainOutput, ioObj: IO) {
   if (field == null) {
     output.printLine(errorMessages.inputFileContainsSmthWrong)
   } else if(field is GameField) {
-    val finalField = returnGameField(field)
+    var finalField = ""
+    if (containsFlag(args, "-a")){
+      finalField = returnGameFieldBySteps(field)
+    } else {
+      finalField = returnGameField(field)
+    }
     output.printLine(finalField)
 
     //Write to file
@@ -67,10 +72,14 @@ fun mainHandler(args: Array<String>, output: MainOutput, ioObj: IO) {
 
   }
 }
+fun containsFlag(args: Array<String>, flagChar: String) : Boolean{
+  return args.contains(flagChar)
+}
 
 class ErrorMessages {
   val noArgs = "To play Tertrisss(R) you need to create a file\n" +
                "that contains height, width, and field with pieces\n" +
+               "Launch with -a argument for all steps\n" +
                "Example:\n" +
                "5 5\n" +
                ".....\n" +

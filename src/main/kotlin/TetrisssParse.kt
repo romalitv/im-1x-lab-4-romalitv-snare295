@@ -1,7 +1,5 @@
 package com.lab3
 
-import java.text.Normalizer.Form
-
 fun parseGameField(inputStr: String) : GameField {
     val lines = inputStr.lines()
     val sizeY = lines[0].split(' ')[0].toInt()
@@ -33,7 +31,7 @@ fun parseGameField(inputStr: String) : GameField {
 fun returnGameField(parseGameField: GameField) : String {
 
 
-    val gameField : GameField = parseGameField
+    val gameField: GameField = parseGameField
 
     gameField.moveFiguresEnd()
 
@@ -44,16 +42,16 @@ fun returnGameField(parseGameField: GameField) : String {
 
     val setOfPin = gameField.getFieldPins()
 
-    for (element in setOfPin){
+    for (element in setOfPin) {
 //       println(element)
-        if (element is PinFigure){
+        if (element is PinFigure) {
             matrix[element.y][element.x] = "p"
-        } else if (element is PinBlock){
+        } else if (element is PinBlock) {
             matrix[element.y][element.x] = "#"
         }
     }
 
-    var finalRes : String = ""
+    var finalRes: String = ""
 
     for (element in matrix) {
         for (elem in element) {
@@ -66,4 +64,54 @@ fun returnGameField(parseGameField: GameField) : String {
 
 
     return finalRes
+}
+
+
+
+
+
+fun returnGameFieldBySteps(parseGameField: GameField) : String {
+
+
+    val gameField: GameField = parseGameField
+    var output : String = ""
+
+    var stepCnt : Int = 0
+    var canStep : Boolean = true
+    while (canStep) {
+
+        val x = gameField.getSizeX()
+        val y = gameField.getSizeY()
+
+        val matrix = Array(y) { Array(x) { "." } }
+
+        val setOfPin = gameField.getFieldPins()
+
+        for (element in setOfPin) {
+//       println(element)
+            if (element is PinFigure) {
+                matrix[element.y][element.x] = "p"
+            } else if (element is PinBlock) {
+                matrix[element.y][element.x] = "#"
+            }
+        }
+
+        var finalRes: String = ""
+
+        finalRes += "STEP " + stepCnt.toString() + "\n"
+
+        for (element in matrix) {
+            for (elem in element) {
+                finalRes += elem
+            }
+            finalRes += "\n"
+        }
+
+        output += finalRes
+        output += "\n"
+
+        canStep = gameField.moveFiguresStep()
+        stepCnt++
+    }
+    return output
 }
