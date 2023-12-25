@@ -14,6 +14,12 @@ Example:
 
 ![program argument](https://github.com/romalitv/im-1x-lab-4-romalitv-snare295/blob/master/images/programm_argument.png)
 
+To run programm step-by-step you have to add ``` -a``` param to build
+
+Example:
+
+![program_arguments_a](https://github.com/romalitv/im-1x-lab-4-romalitv-snare295/blob/master/images/programm_arguments_a.png)
+
 To run tests :
 
 ``` ./gradlew test ```
