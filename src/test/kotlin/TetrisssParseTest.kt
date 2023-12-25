@@ -94,4 +94,26 @@ class TetrisssParseTest {
 
         assertEquals(expectedOutput, actualOutput)
     }
+
+    @Test
+    fun testReturnGameFieldBySteps(){
+        /* input               output  STEP 0           STEP4
+                    p.p.p              p.p.p            .....
+                    .....              .....            .....
+                    .....              .....    ....    .....
+                    .....              .....            .....
+                    .#.#.              .#.#.            p#p#p
+
+         */
+        val gameField = GameField(5, 5, mutableSetOf(PinFigure(2, 0), PinFigure(0, 0), PinFigure(4, 0), PinBlock(1, 4),PinBlock(3, 4)))
+        val expectedOutput =    "STEP 0\np.p.p\n.....\n.....\n.....\n.#.#.\n\n" +
+                                "STEP 1\n.....\np.p.p\n.....\n.....\n.#.#.\n\n" +
+                                "STEP 2\n.....\n.....\np.p.p\n.....\n.#.#.\n\n" +
+                                "STEP 3\n.....\n.....\n.....\np.p.p\n.#.#.\n\n" +
+                                "STEP 4\n.....\n.....\n.....\n.....\np#p#p\n\n"
+
+        val actualOutput = returnGameFieldBySteps(gameField)
+
+        assertEquals(expectedOutput, actualOutput)
+    }
 }
