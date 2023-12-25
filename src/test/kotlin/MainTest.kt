@@ -115,8 +115,7 @@ internal class MainTest {
         // Given
         val testFilePath : String = "src/test/resources/output.txt"
 
-        File(testFilePath).delete()
-        File(testFilePath).createNewFile()
+        File(testFilePath).writeText("")
 
         var outputFileString  = slot<String>()
         val ioMock: IO = mockk()
