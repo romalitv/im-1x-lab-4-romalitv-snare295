@@ -148,9 +148,6 @@ internal class MainTest {
         val finalBoard = "....\n....\n#p#p\n"
         assertEquals(finalBoard , File(testFilePath).readText())
 
-        // Clean
-        File(testFilePath).delete()
-
     }
 
     @Test
