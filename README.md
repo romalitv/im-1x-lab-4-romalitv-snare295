@@ -1,6 +1,8 @@
-# Tetris
+# Tetris++
 
-Tests are located in [src/test/kotlin](https://github.com/romalitv/im-1x-lab-3-romalitv-snare295/tree/master/src/test/kotlin)
+Reworked version of [Tetris](https://github.com/romalitv/im-1x-lab-3-romalitv-snare295) with possibility to print output step-by-step
+
+Tests are located in [src/test/kotlin](https://github.com/romalitv/im-1x-lab-4-romalitv-snare295/tree/master/src/test/kotlin)
 
 To run the programm :
 
@@ -10,7 +12,7 @@ Secondly, you must enter the program arguments the path to the location of your 
 
 Example: 
 
-![program argument](https://github.com/romalitv/im-1x-lab-3-romalitv-snare295/blob/master/images/programm_argument.png)
+![program argument](https://github.com/romalitv/im-1x-lab-4-romalitv-snare295/blob/master/images/programm_argument.png)
 
 To run tests :
 
